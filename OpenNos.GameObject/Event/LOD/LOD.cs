@@ -29,11 +29,11 @@ namespace OpenNos.GameObject.Event
         public static void GenerateLod(int lodtime = 60)
         {
             const int hornTime = 30;
-            const int hornRepawn = 4;
+            const int hornRespawn = 4;
             const int hornStay = 1;
             EventHelper.Instance.RunEvent(new EventContainer(ServerManager.Instance.GetMapInstance(ServerManager.Instance.GetBaseMapInstanceIdByMapId(98)), EventActionType.NPCSEFFECTCHANGESTATE, true));
             LODThread lodThread = new LODThread();
-            Observable.Timer(TimeSpan.FromMinutes(0)).Subscribe(X => lodThread.Run(lodtime * 60, hornTime * 60, hornRepawn * 60, hornStay * 60));
+            Observable.Timer(TimeSpan.FromMinutes(0)).Subscribe(X => lodThread.Run(lodtime * 60, hornTime * 60, hornRespawn * 60, hornStay * 60));
         }
 
         #endregion
